@@ -1,0 +1,103 @@
+<!doctype html>
+<html ng-app='project'>
+<title>Angular to-do list demo page</title>
+<style type='text/css'>
+body{
+	font-family: arial;
+	color: #555;
+}
+
+li{
+	list-style: none outside none;
+	display: inline-block;
+	margin: 0 10px;
+}
+
+
+</style>
+
+
+
+<head>
+	<script type='text/javascript' src='angular.js'></script>
+	<script type='text/javascript' src='angular-1.2.5/angular-resource.js'></script>
+	<script type='text/javascript' src='angular-1.2.5/angular-route.js'></script>
+	<script type='text/javascript'>
+	angular.module('project', ['ngRoute'])
+	
+	.config(function($routeProvider){
+		$routeProvider.when('/', {
+			controller: 'listController',
+			templateUrl: 'list.html'
+		}).when('/detail',{
+			controller: 'listController',
+			templateUrl: 'detail.html'
+		});
+	})
+
+	.controller('listController', function($scope){
+			$scope.myname = 'gee';
+			$scope.age = '25';
+			//$scope.inputName  = '';
+
+			$scope.list = [
+				{name:'gee', age: 25},
+				{name:'yury', age:25}
+			]
+
+		 	$scope.getCount = function(){
+		 		console.log('in getting name');
+		 		return this.list.length;
+		 	}
+
+		 	$scope.addPerson = function(){
+		 		console.log(this === $scope);
+		 		console.log($scope);
+		 		this.list.push({name: this.inputName, age: 25});
+		 	}		
+	});
+
+	</script>
+	<script type='text/javascript'>
+		function myController($scope){
+			$scope.myname = 'gee';
+			$scope.age = '25';
+			//$scope.inputName  = '';
+
+			$scope.list = [
+				{name:'gee', age: 25},
+				{name:'yury', age:25}
+			]
+
+		 	$scope.getCount = function(){
+		 		console.log('in getting name');
+		 		return this.list.length;
+		 	}
+
+		 	$scope.addPerson = function(){
+		 		console.log(this === $scope);
+		 		console.log($scope);
+		 		this.list.push({name: this.inputName, age: 25});
+		 	}
+
+		}
+
+	</script>
+</head>
+<body>
+	<div ng-view>
+
+</body>
+<!-- <body ng-controller='myController'>
+	<p>There is <span>{{getCount()}}</span> people in the current list!<p>
+
+
+	<input type='text' ng-model='inputName'><button ng-click='addPerson()'>add</button>
+	hello {{inputName}}
+
+	<ul ng-repeat='person in list'>
+		<li>{{person.name}}</li>
+		<li>{{person.age}}</li>
+	</ul>
+</body> -->
+</html>
