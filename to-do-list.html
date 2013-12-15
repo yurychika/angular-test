@@ -29,8 +29,8 @@ li{
 		$routeProvider.when('/', {
 			controller: 'listController',
 			templateUrl: 'list.html'
-		}).when('/detail',{
-			controller: 'listController',
+		}).when('/detail/:name',{
+			controller: 'detailController',
 			templateUrl: 'detail.html'
 		});
 	})
@@ -55,6 +55,12 @@ li{
 		 		console.log($scope);
 		 		this.list.push({name: this.inputName, age: 25});
 		 	}		
+	})
+
+	.controller('detailController', function($scope, $routeParams){
+		$scope.name = 'geegeegee';
+		console.log('detailController arguments');
+		console.log(arguments);
 	});
 
 	</script>
