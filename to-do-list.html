@@ -37,12 +37,17 @@ li{
 	})
 	
 	.config(function($routeProvider){
-		$routeProvider.when('/', {
+		$routeProvider
+		.when('/', {
 			controller: 'listController',
 			templateUrl: 'list.html'
-		}).when('/detail/:name',{
+		})
+		.when('/detail/:name',{
 			controller: 'detailController',
 			templateUrl: 'detail.html'
+		})
+		.otherwise({
+			redirectTo: '/'
 		});
 	})
 
