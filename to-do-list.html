@@ -24,6 +24,17 @@ li{
 	<script type='text/javascript' src='angular-1.2.5/angular-route.js'></script>
 	<script type='text/javascript'>
 	angular.module('project', ['ngRoute'])
+
+	.factory('List', function(){
+		var service = {
+			list:  [
+				{name:'gee', age: 25},
+				{name:'yury', age:25}
+			]
+
+		};
+		return service;
+	})
 	
 	.config(function($routeProvider){
 		$routeProvider.when('/', {
@@ -35,15 +46,15 @@ li{
 		});
 	})
 
-	.controller('listController', function($scope){
+	.controller('listController', function($scope, List){
+			console.log('list is');
+			console.log(List);
+
 			$scope.myname = 'gee';
 			$scope.age = '25';
 			//$scope.inputName  = '';
 
-			$scope.list = [
-				{name:'gee', age: 25},
-				{name:'yury', age:25}
-			]
+			$scope.list = List.list;
 
 		 	$scope.getCount = function(){
 		 		console.log('in getting name');
