@@ -62,8 +62,13 @@ li{
 			$scope.list = List.list;
 
 		 	$scope.getCount = function(){
-		 		console.log('in getting name');
+		 		console.log('in getting count');
 		 		return this.list.length;
+		 	};
+
+		 	$scope.getName = function(){
+		 		console.log('in getting name');
+		 		return '123';
 		 	}
 
 		 	$scope.addPerson = function(){
@@ -77,6 +82,14 @@ li{
 		$scope.name = 'geegeegee';
 		console.log('detailController arguments');
 		console.log(arguments);
+	})
+
+	.controller('testController', function($scope, $routeParams){
+		$scope.name = 'test controller';
+
+		$scope.getCount = function(){
+			return $scope.name.length;
+		}
 	});
 
 	</script>
@@ -107,7 +120,14 @@ li{
 	</script>
 </head>
 <body>
-	<div ng-view>
+	<button ng-click='count = count+1' ng-init="count=0">click</button>
+	count is {{click}}
+	<!-- <div ng-view> -->
+	<div ng-controller='testController'>
+		text is {{name}}
+		count is {{getCount()}}
+		<button ng-click="name=name+11">click</button>
+	</div>
 
 </body>
 <!-- <body ng-controller='myController'>
