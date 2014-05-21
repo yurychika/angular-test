@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'/>
+		<style style='text/css'>
+			todolist{
+				border: 1px solid #abc;
+				float: left;
+				margin: 5px;
+				padding: 5px;
+				border-radius: 5px;
+			}
+
+		</style>
+		<script src="angular.min.js"></script>
+		<script src="todo.js"></script>
+		<script type='text/javascript'>
+			console.log(angular);
+			angular.module('app', [])
+
+				.controller('Controller', ['$scope', function($scope){
+
+				}])
+
+				.directive('todolist', function(){
+					return {
+						restrict: 'E',
+						scope: {
+							todoInfo: '=info'
+						},
+						templateUrl: 'template.html',
+						replace: false
+					}
+				})
+		</script>
+		<link rel="stylesheet" href="todo.css">
+	</head>
+
+	<body >
+		<div ng-app='app'>
+			<div ng-controller='Controller'>
+				<h2>Todo</h2>
+				<todolist id='todo1' info='study'></todolist>
+				<todolist id='todo2' info='play'></todolist>
+				<todolist id='todo3' info='eat'></todolist>
+			</div>
+		</div>
+	</body>
+</html>

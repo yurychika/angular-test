@@ -75,7 +75,7 @@ li{
 		 		console.log(this === $scope);
 		 		console.log($scope);
 		 		this.list.push({name: this.inputName, age: 25});
-		 	}		
+		 	}
 	})
 
 	.controller('detailController', function($scope, $routeParams){
@@ -84,11 +84,18 @@ li{
 		console.log(arguments);
 	})
 
-	.controller('testController', function($scope, $routeParams){
+	.controller('testController', function($scope, List, $routeParams){
+		console.log('argumetns');
+		console.log(arguments);
+
+		console.log('list is');
+		console.log(List);
+
 		$scope.name = 'test controller';
+		$scope.list = List.list;
 
 		$scope.getCount = function(){
-			return $scope.name.length;
+			return $scope.list.length;
 		}
 	});
 
@@ -104,16 +111,16 @@ li{
 				{name:'yury', age:25}
 			]
 
-		 	$scope.getCount = function(){
-		 		console.log('in getting name');
-		 		return this.list.length;
-		 	}
+			$scope.getCount = function(){
+				console.log('in getting name');
+				return this.list.length;
+			}
 
-		 	$scope.addPerson = function(){
-		 		console.log(this === $scope);
-		 		console.log($scope);
-		 		this.list.push({name: this.inputName, age: 25});
-		 	}
+			$scope.addPerson = function(){
+				console.log(this === $scope);
+				console.log($scope);
+				this.list.push({name: this.inputName, age: 25});
+			}
 
 		}
 
@@ -124,7 +131,7 @@ li{
 	count is {{click}}
 	<!-- <div ng-view> -->
 	<div ng-controller='testController'>
-		text is {{name}}
+		text is {{name}}<br>
 		count is {{getCount()}}
 		<button ng-click="name=name+11">click</button>
 	</div>
