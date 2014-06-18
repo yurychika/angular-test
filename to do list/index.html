@@ -17,17 +17,19 @@
 		<script type='text/javascript'>
 			console.log(angular);
 			angular.module('app', [])
+				.controller('Controller', ['$scope', '$compile', function($scope, $compile){
 
-				.controller('Controller', ['$scope', function($scope){
+					$scope.addToDo = function(){
+						angular.element(document.getElementById('cc')).append($compile("<todolist id='todo4' info='study'></todolist>")($scope));
+					};
+
+					console.log('compile is');
+					console.log($compile);
 
 				}])
-
 				.directive('todolist', function(){
 					return {
 						restrict: 'E',
-						scope: {
-							todoInfo: '=info'
-						},
 						templateUrl: 'template.html',
 						replace: false
 					}
@@ -38,7 +40,8 @@
 
 	<body >
 		<div ng-app='app'>
-			<div ng-controller='Controller'>
+			<div ng-controller='Controller' id='cc'>
+				<button ng-click='addToDo()'>Add new to-do-list</button>
 				<h2>Todo</h2>
 				<todolist id='todo1' info='study'></todolist>
 				<todolist id='todo2' info='play'></todolist>
