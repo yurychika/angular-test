@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS AngularJS + Dojo App</title>
+  <title>My AngularJS test page(AngularJS + Dojo)</title>
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -12,9 +12,17 @@
   </ul>
 
   <div data-ng-view></div>
-
+  <br.
   <div>Angular Require seed app: v<span app-version></span></div>
   <button id='clickme'>click me!</button>
-  <script src="lib/requirejs/require.js" data-main="js/main.js"></script>
+  <script src="../lib/requirejs/require.js" data-main="js/main"></script>
+  <!--<script src="../lib/dojo/dojo/dojo.js"></script>
+  <script type='text/javascript'>
+    require(['dojo/ready'], function(ready){
+      ready(function(){
+        console.log('on dojo ready');
+      });
+    })
+  </script>-->
 </body>
 </html>
