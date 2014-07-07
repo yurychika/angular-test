@@ -4,11 +4,6 @@ function TodoCtrl($scope) {
 		{text:'build an angular app', done:false}
 	];
 
-
-	$(document.body).css('border', '1px solid red');
-	$(document.body).css('font-weight', 'bold');
-
-
 	$scope.addTodo = function() {
 		$scope.todos.push({text:$scope.todoText, done:false});
 		$scope.todoText = '';

@@ -3,15 +3,14 @@
  * this should be used for top-level module definitions only
  */
 define([
-    'angular',
-    'angular-route',
-    './controllers/index',
-    './directives/index',
-    './filters/index',
-    './services/index'
-], function (angular) {
+    // 'app/controllers/index',
+    // 'app/directives/index',
+    // 'app/filters/index',
+    // 'app/services/index'
+], function () {
     'use strict';
 
+    return angular.module('app', []);
     return angular.module('app', [
         'app.controllers',
         'app.directives',
