@@ -48,6 +48,7 @@
 
 </style>
 <script src="angular.min.js"></script>
+
 <script type='text/javascript'>
 	// console.log(angular);
 	angular.module('app', [])
@@ -113,23 +114,9 @@
 					};
 
 					$scope.inputKeyPress = function(e){
-						console.log(e.target.value);
 						$scope.search = $scope.value;
 						$scope._hide = false;
 					};
-
-					$scope.getTemp = function(city) {
-						$http({
-							method: 'JSONP',
-							url: url + city
-						}).success(function(data) {
-							var weather = [];
-							angular.forEach(data.list, function(value){
-								weather.push(value);
-							});
-							$scope.weather = weather;
-						});
-					}
 				}],
 			}
 		})
