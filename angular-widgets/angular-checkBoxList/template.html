@@ -1,0 +1,9 @@
+<div ng-blur='dropdownBlur()' class='myCheckboxlist'>
+	<ul class="unstyled">
+		<li ng-repeat="option in data" class='checkbox'>
+			<label class="done-{{option.value}}">
+				<input type='checkbox' value='{{option.value}}' ng-click='change($event)' ng-model='confirmed'>{{option.label}}
+			</label>
+		</li>
+	</ul>
+</div>

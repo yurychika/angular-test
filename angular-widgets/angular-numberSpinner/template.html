@@ -1,0 +1,21 @@
+<div ng-blur='dropdownBlur()' class='myNumberspinner' ng-class="{error: !isValid()}">
+	<div style='display: inline-block' class='inputContainer'>
+		<div class='buttonContainer'>
+			<div class='up' ng-click='up()'>
+				<span></span>
+			</div>
+			<div class='down' ng-click='down()'>
+				<span></span>
+			</div>
+		</div>
+		<div class='numberContainer'>
+			<input type="text" placeholder="input number here..." value='{{value}}'
+				ng-model="value" ng-keypress ='inputKeyPress($event)' ng-blur='dropdownBlur()'>
+		</div>
+	</div>
+
+	<form ng-submit="addTodo()">
+		<!-- <input type="text" ng-model="todoText"  size="30" placeholder="add new todo here"> -->
+		<!-- <input class="btn-primary" type="submit" value="add"> -->
+	</form>
+</div>

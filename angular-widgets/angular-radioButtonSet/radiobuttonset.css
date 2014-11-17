@@ -1,0 +1,44 @@
+.myRadiobuttonset{
+	font-family: arial, verdana;
+	position: relative;
+}
+
+.myRadiobuttonset ul{
+	display: inline-block;
+}
+
+.myRadiobuttonset .checkbox{
+	float: left;
+}
+
+.inputContainer{
+	width: 100%;
+}
+
+.combobox-button{
+	float: left;
+	background: gray;
+	border: 2px solid gray;
+	height: 100%;
+	width: 10%;
+}
+.combobox-input{
+	float: left;
+	width: 90%;
+}
+
+.dropdown{
+	border: 1px solid grey;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	margin-top: -4px;
+}
+
+.dropdown li{
+	padding: 3px;
+}
+
+.dropdown li:hover{
+	background-color: #D3D3D0;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<link rel='stylesheet' href='numberspinner.css'/>
+<style style='text/css'>
+	ul{
+		margin: 0px;
+		padding: 0px;
+	}
+	li{
+		list-style: none outside none;
+	}
+</style>
+<script src="angular.min.js"></script>
+<script src="angular-numberSpinner.js"></script>
+
+<script type='text/javascript'>
+	// console.log(angular);
+	angular.module('app', ['my.numberSpinner'])
+		.controller('Controller', ['$scope', '$compile', function($scope, $compile){
+			$scope.book = [
+				{label: 'Angular definition guide', value: 1},
+				{label: 'Head first Angular', value: 2}
+			];
+
+			$scope.country = [
+				{label: 'China', value: 1},
+				{label: 'USA', value: 2},
+				{label: 'UK', value: 3}
+			];
+
+			$scope.numberValue = 0;
+		}]);
+</script>
+<link rel="stylesheet" href="todo.css">
+</head>
+
+<body >
+	<div ng-app='app'>
+		<div ng-controller='Controller' id='cc'>
+			<!-- <button ng-click='addToDo()'>Add new to-do-list</button> -->
+			<h2>Angular combobox</h2>
+			<!-- 
+			<todolist id='todo1' info='study'></todolist>
+			<todolist id='todo2' info='play'></todolist>
+			<todolist id='todo3' info='eat'></todolist>
+			<input type='text' ng-model='checkboxValue'> -->
+			<my-numberspinner id='todo1' my-combobox custom-data-store='book' max-value='100' min-value='0'
+				base-class='myCombobox' ng-model='numberValue'></my-numberspinner>
+			<!-- <div id='todo1' my-combobox custom-data-store='country'></div> -->
+<!-- 				<div id='todo2' my-combobox ng-name='play'></div>
+			<div id='todo3' my-combobox ng-name='eat'></div> -->
+		</div>
+	</div>
+</body>
+</html>

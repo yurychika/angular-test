@@ -1,0 +1,9 @@
+<div ng-blur='dropdownBlur()' class='myRadiobuttonset'>
+	<ul class="unstyled">
+		<li ng-repeat="option in data" class='checkbox'>
+			<label class="done-{{option.value}}">
+				<input type='radio' value='{{option.value}}' name='my-radiobuttonset-{{_uuid}}' ng-click='change($event)' ng-model='confirmed'>{{option.label}}
+			</label>
+		</li>
+	</ul>
+</div>

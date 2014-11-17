@@ -3,8 +3,7 @@
  * The routes you see here will be anchors '#/' unless specifically configured otherwise.
  */
 
-define(['./app'], function (app) {
-    'use strict';
+define(['app/app'], function (app) {
     return app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/view1', {
             templateUrl: 'partials/partial1.html',
@@ -17,7 +16,7 @@ define(['./app'], function (app) {
         });
 
         $routeProvider.otherwise({
-            redirectTo: '/view1'
+          redirectTo: '/view1'
         });
     }]);
 });

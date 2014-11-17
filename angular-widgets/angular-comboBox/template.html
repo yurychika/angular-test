@@ -1,4 +1,4 @@
-<div>
+<div ng-blur='dropdownBlur()'>
 	<!-- <p>this is the combobox {{ngName}}</p> -->
 	<!-- <span>{{remaining()}} of {{todos.length}} remaining</span> -->
 	<!-- [ <a href="" ng-click="archive()">archive</a> ] -->
@@ -6,17 +6,16 @@
 		<input type="text"
 				placeholder="input keyword here" class='combobox-input'
 				ng-model="value" 
-				ng-keypress ='inputKeyPress($event)'
+				ng-keypress ='inputKeyPress($event)'  ng-blur='dropdownBlur()'
 				>
 		<button class='combobox-button' ng-click='toggleClick()'>&nbsp</button>
-	</div>
-
-	<div class='dropdown' ng-hide='_hide' ng-blur='dropdownBlur()'>
-		<ul class="unstyled">
-			<li ng-repeat="option in data | filter: search" ng-click='select($event)'>
-				<span class="done-{{option.value}}">{{option.label}}</span>
-			</li>
-		</ul>
+		<div class='dropdown' ng-hide='_hide' ng-blur='dropdownBlur()'>
+			<ul class="unstyled">
+				<li ng-repeat="option in data | filter: search" ng-click='select($event)'>
+					<span class="done-{{option.value}}">{{option.label}}</span>
+				</li>
+			</ul>
+		</div>
 	</div>
 
 	<form ng-submit="addTodo()">
